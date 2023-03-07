@@ -23,6 +23,7 @@ const UpdateData = () => {
   })
   const Navigation = useNavigation()
   const prevData = useSelector(state => state.useData)
+
   useEffect(() => {
     setInpusts(prevstate => ({ ...prevstate, ['name']: prevData.user_name }))
     setInpusts(prevstate => ({ ...prevstate, ['email']: prevData.user_eamil }))

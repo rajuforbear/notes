@@ -11,20 +11,25 @@ import {
 } from 'react-native'
 import { openDatabase } from 'react-native-sqlite-storage'
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
 
 let db = openDatabase({ name: 'useData.db' })
-const Register = () => {
+const Add = () => {
 
   const Navigation=useNavigation()
 
   useEffect(() => {
-    createTable()
+    createTable(),
+    setInpusts(prev=>({...prev,['name']:userData.name}))
   }, [])
 
 
 
+  const userData=useSelector(state=>state.userData)
+  
 
   const createTable = () => {
+
     db.transaction(function (txn) {
       txn.executeSql(
         "SELECT * FROM sqlite_master WHERE type='table' AND name='user'",
@@ -191,4 +196,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Add

@@ -28,7 +28,7 @@ const LoginPage = () => {
                   setTimeout(() => {
                      dispatch(addData(res.rows.item(0)))
 
-                     Navigation.navigate('show')
+                     Navigation.navigate('getData')
                   }, 2000)
 
                }

@@ -13,6 +13,7 @@ const ShowData = () => {
     const dispatch = useDispatch()
     const [data,setData]=useState()
     const [count,setCount]=useState(0)
+    const name=useSelector(s=>s.userData)
     useEffect(() => {
        
         datashow()
@@ -20,8 +21,8 @@ const ShowData = () => {
     const datashow = async() => {
        db.transaction((txn => {
             txn.executeSql(
-                'select * from user',
-                [],
+                'select * from user where user_name=?',
+                [name.name],
                (txn, res) => {
                     let arr = []
                     for (let i = 0; i < res.rows.length; i++) {
@@ -38,8 +39,6 @@ const ShowData = () => {
             )
         }))
     }
-
-    console.log('rj')
 
     const update = (item) => {
         dispatch(dataToupdate(item))
@@ -86,7 +85,7 @@ const ShowData = () => {
                   
                 }
          
-            <TouchableOpacity onPress={() => Navigation.navigate('Register')} style={styles.btn}><Text style={styles.text}>ADD DATA</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => Navigation.navigate('Add')} style={styles.btn}><Text style={styles.text}>ADD DATA</Text></TouchableOpacity>
         </View>
     )
 }
