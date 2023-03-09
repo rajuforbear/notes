@@ -7,8 +7,8 @@ let db = openDatabase({ name: 'mySql.db' })
 import { useDispatch } from 'react-redux'
 import { addData } from './ReduxToolkit/Slice'
 
-const LoginPage = () => {
-   const Navigation = useNavigation()
+const LoginPage = ({navigation}) => {
+  
    const dispatch=useDispatch()
 
    const [email, setEmail] = React.useState('')
@@ -28,7 +28,7 @@ const LoginPage = () => {
                   setTimeout(() => {
                      dispatch(addData(res.rows.item(0)))
 
-                     Navigation.navigate('getData')
+                     navigation.navigate('getData')
                   }, 2000)
 
                }
@@ -51,7 +51,7 @@ const LoginPage = () => {
 
          </View>
          <TouchableOpacity onPress={() => vaildation()} style={{ marginVertical: "10%", padding: '4%', backgroundColor: 'green', marginHorizontal: "5%", borderRadius: 5, alignItems: "center" }}><Text style={{ color: 'white', fontWeight: 'bold', fontSize: 17 }}>Login</Text></TouchableOpacity>
-         <TouchableOpacity onPress={() => Navigation.navigate('Register')}><Text style={{ alignSelf: "center", fontWeight: 'bold', fontSize: 18 }}>Create new account</Text></TouchableOpacity>
+         <TouchableOpacity onPress={() => navigation.navigate('Register')}><Text style={{ alignSelf: "center", fontWeight: 'bold', fontSize: 18 }}>Create new account</Text></TouchableOpacity>
       </View>
    )
 }
