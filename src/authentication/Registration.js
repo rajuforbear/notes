@@ -83,7 +83,7 @@ const Register = () => {
     return (
         <View style={{ flex: 1 }}>
 
-            <Text style={{ fontSize: 40, fontWeight: 'bold', marginTop: "25%", alignSelf: "center" }}>Login</Text>
+            <Text style={{ fontSize: 40, fontWeight: 'bold', marginTop: "25%", alignSelf: "center" }}>Register..</Text>
             <View style={{ paddingHorizontal: 15, borderWidth: 1, marginVertical: "5%", marginHorizontal: "5%", borderRadius: 5 }}>
                 <TextInput value={name} onChangeText={(txt) => setName(txt)} placeholder='Enter Name' />
             </View>

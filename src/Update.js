@@ -68,7 +68,7 @@ const UpdateData = () => {
             margin: "20%",
             color: "green"
           }}
-          >Register...</Text>
+          >Add Data...</Text>
           <Text style={{
             marginLeft: "5%",
             marginTop: "1%",
